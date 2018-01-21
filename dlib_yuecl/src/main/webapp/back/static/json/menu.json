@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "name": "系统管理",
+    "iconCls": "icon-2012080404391",
+    "href": "",
+    "child": [
+      {
+        "id": 2,
+        "name": "书籍管理",
+        "iconCls": "icon-book_open_mark",
+        "href": "/dlib/back/book/booklist.jsp"
+      },
+      {
+        "id": 3,
+        "name": "轮播图管理",
+        "iconCls": "icon-book_addresses_add",
+        "href": "/dlib/back/banner/bannerlist.jsp"
+      },
+      {
+        "id": 4,
+        "name": "分类管理",
+        "iconCls": "icon-cdr_stop_alt",
+        "href": "/dlib/back/sort/FirstSort.jsp"
+      },
+      {
+        "id": 5,
+        "name": "阅读量展示",
+        "iconCls": "icon-asterisk_orange",
+        "href": "/dlib/back/book/bookNum.jsp"
+      },
+      {
+        "id": 7,
+        "name": "用户管理",
+        "iconCls": "icon-group_go",
+        "href": "/dlib/back/user/userlist.jsp"
+      },
+      {
+        "id": 9,
+        "name": "章节管理",
+        "iconCls": "icon-folder_page",
+        "href": "/dlib/back/chapter/chapterlist.jsp"
+      },
+      {
+        "id": 8,
+        "name": "用户活跃量展示",
+        "iconCls": "icon-asterisk_orange",
+        "href": "/dlib/back/user/dateOfRegist.jsp"
+      },
+      {
+        "id": 15,
+        "name": "图书封面类型展示",
+        "iconCls": "icon-asterisk_orange",
+        "href": "/dlib/back/book/bookType.jsp"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "关于自己",
+    "iconCls": "icon-user_edit",
+    "href": "",
+    "child": [
+      {
+        "id": 11,
+        "name": "我的信息",
+        "iconCls": "icon-user_add",
+        "href": ""
+      },
+      {
+        "id": 12,
+        "name": "修改信息",
+        "iconCls": "icon-user_red",
+        "href": ""
+      },
+      {
+        "id": 13,
+        "name": "修改密码",
+        "iconCls": "icon-user_star",
+        "href": ""
+      },
+      {
+        "id": 14,
+        "name": "注销账户",
+        "iconCls": " icon-user_orange",
+        "href": ""
+      }
+    ]
+  }
+]

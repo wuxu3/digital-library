@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "../mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.common.dao.SortDao">
+
+    <resultMap id="allSortResultMap" type="com.baizhi.common.entity.Sort">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="parentId" column="parent_id"/>
+        <association property="firstSort" javaType="com.baizhi.common.entity.Sort">
+            <id property="id" column="parentId"/>
+            <result property="name" column="parentName"/>
+            <result property="parentId" column="ppId"/>
+        </association>
+    </resultMap>
+
+    <select id="selectSecondSorts" resultMap="allSortResultMap">
+        select t1.id,t1.name,t1.parent_id,t2.id as parentId,t2.name as parentName,t2.parent_id as ppId from t_sort t1
+        join t_sort t2 on t1.parent_id=t2.id limit #{page},#{rows}
+    </select>
+
+    <select id="secondSortCount" resultType="java.lang.Integer">
+        select count(id) from t_sort where parent_id is not null
+    </select>
+
+    <delete id="deleteSort">
+
+        delete from t_sort where id=#{id}
+
+    </delete>
+
+    <update id="updateSort">
+
+        update t_sort set name=#{name} where id=#{id}
+    </update>
+
+    <select id="selectOne" resultType="com.baizhi.common.entity.Sort">
+
+        select id,name,parent_id as parentId from t_sort where id=#{id}
+    </select>
+
+    <select id="selectAllFirstSort" resultType="com.baizhi.common.entity.Sort">
+
+        select id,name from t_sort where parent_id is null
+
+    </select>
+    <insert id="addSort">
+
+        insert into t_sort values(#{id},#{name},#{parentId})
+
+    </insert>
+
+    <select id="allSecondSort" resultType="com.baizhi.common.entity.Sort">
+
+        select id,name,parent_id as parentId from t_sort where parent_id=#{parentId}
+
+    </select>
+
+    <select id="selectAllFirstSorts" resultMap="allSortResultMap">
+        select t1.id,t1.name,t1.parent_id,t2.id as parentId,t2.name as parentName,t2.parent_id as ppId from t_sort t1
+        join t_sort t2 on t1.id=t2.parent_id
+
+    </select>
+</mapper>

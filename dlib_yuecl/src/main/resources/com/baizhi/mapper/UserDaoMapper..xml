@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "../mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.common.dao.UserDao">
+
+    <select id="selectAllUser" resultType="com.baizhi.common.entity.User">
+        select id,name,acount_number as accoutNumber,password,photo,inreadcount,outreadcount,user_status as
+        userSatus,registdate as registerdate,rack_id as rackId,bir,salt from t_user limit #{page},#{rows}
+    </select>
+
+    <select id="selectCount" resultType="java.lang.Integer">
+
+        select count(*) from t_user
+    </select>
+
+    <update id="updateStatus">
+
+        update t_user set user_status=#{status} where id=#{id}
+    </update>
+
+    <insert id="addUser">
+        insert into t_user
+        values(#{id},#{name},#{accoutNumber},#{password},#{photo},#{inreadcount},#{outreadcount},#{userSatus},#{registerdate},#{rackId},#{bir},#{salt})
+    </insert>
+
+    <select id="selectOne" resultType="com.baizhi.common.entity.User">
+
+        select id,name,acount_number as accoutNumber,password,photo,inreadcount,outreadcount,user_status as
+        userSatus,registdate as registerdate,rack_id as rackId,bir,salt from t_user where name=#{id}
+    </select>
+
+    <update id="updatePwd">
+        update t_user set password=#{password},salt=#{salt} where id=#{id}
+    </update>
+
+    <select id="selectAllUsers" resultType="com.baizhi.common.entity.User">
+        select id,name,acount_number as accoutNumber,password,photo,inreadcount,outreadcount,user_status as
+        userSatus,registdate as registerdate,rack_id as rackId,bir,salt from t_user
+    </select>
+
+    <select id="selectCountByDate" resultType="java.lang.Integer" parameterType="java.lang.String">
+        select count(*) from t_user
+        where registdate&gt;date_sub(curdate(), interval 1 ${condition})
+    </select>
+</mapper>

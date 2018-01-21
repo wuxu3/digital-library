@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "../mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.common.dao.AdminDao">
+
+    <insert id="addAdmin" parameterType="com.baizhi.common.entity.Admin">
+
+        insert into t_manager values(#{id},#{username},#{password},#{realname},#{bir})
+
+    </insert>
+
+    <select id="selectOne" resultType="com.baizhi.common.entity.Admin">
+
+        select * from t_manager where username=#{username}
+
+    </select>
+</mapper>

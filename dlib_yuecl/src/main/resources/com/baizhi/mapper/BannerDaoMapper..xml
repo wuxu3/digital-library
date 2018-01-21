@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "../mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.common.dao.BannerDao">
+
+    <select id="addBanner">
+
+        insert into t_picture values(#{id},#{name},#{url},#{uploaddate})
+    </select>
+
+    <delete id="deleteBanner">
+        delete from t_picture where id=#{id}
+    </delete>
+
+    <update id="updateBanner">
+        update t_picture set name=#{name},url=#{url},uploaddate=#{uploaddate} where id=#{id}
+
+    </update>
+
+    <select id="selectAllBanner" resultType="com.baizhi.common.entity.Banner">
+
+        select * from t_picture limit #{page},#{rows}
+
+    </select>
+
+    <select id="selectOne" resultType="com.baizhi.common.entity.Banner">
+        select * from t_picture where id=#{id}
+
+    </select>
+
+    <select id="bannerCount" resultType="java.lang.Integer">
+
+        select count(*) from t_picture
+
+    </select>
+
+    <select id="getAllBanner" resultType="com.baizhi.common.entity.Banner">
+
+        select * from t_picture
+    </select>
+
+</mapper>
