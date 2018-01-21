@@ -50,4 +50,11 @@ public class MyTest {
 
 
     }
+
+
+    public void test2() {
+
+        System.out.println("第一次修改");
+
+    }
 }
